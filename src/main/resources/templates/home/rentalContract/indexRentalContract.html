@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rental Contract</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+</head>
+<body>
+<h1>List of Rental Contracts</h1>
+<p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
+
+<a href="/">
+    <button class="btn-create" id="btn-back">Back to home </button>
+</a>
+<a href="/createRentalContract">
+    <button class="btn-create" id="btn-create">Create New Rental Contract</button>
+</a>
+
+<table style="width: 100%">
+    <thead>
+    <tr>
+        <th>Rental Contract Id</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Customer ID</th>
+        <th>Motorhome ID</th>
+        <th>Extra ID</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rentalContract: ${rentalContracts}">
+        <td th:text="${rentalContract.rentalContract_id}"/>
+        <td th:text="${rentalContract.rentalContract_startDate}"/>
+        <td th:text="${rentalContract.rentalContract_endDate}"/>
+        <td th:text="${rentalContract.customer_id}"/>
+        <td th:text="${rentalContract.motorhome_id}"/>
+        <td th:text="${rentalContract.extra_id}"/>
+
+
+        <td>
+            <a th:href="@{'/rentalContract/findRentalContract/'+${rentalContract.rentalContract_id}}">
+                <button class="btn-findRentalContract", id="btn-find">View One RentalContract</button>
+            </a>
+            <a th:href="@{'/rentalContract/delete/'+${rentalContract.rentalContract_id}}">
+                <button class="btn-deleteRentalContract", id="btn-delete">Delete RentalContract</button>
+            </a>
+            <a th:href="@{'/rentalContract/updateRentalContract/'+${rentalContract.rentalContract_id}}">
+                <button class="btn-updateRentalContract", id="btn-update">Update RentalContractr</button>
+            </a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

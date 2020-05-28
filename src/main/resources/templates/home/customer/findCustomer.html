@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View One Customer</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+    <style>
+        table, th, td{border: 1px solid black; border-collapse: collapse;}
+        th,td {padding: 5px; text-align: center;}
+        h1{text-align: center; color: orange;}
+        p{text-align: center;}
+    </style>
+</head>
+<body>
+<h1>Customer's Detail</h1>
+<p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<table style="width: 100%">
+    <tr>
+        <th>ID</th><th>First Name</th> <th>Last Name</th> <th>Address</th> <th>City</th> <th>Zip</th>
+        <th>Phonenumber</th> <th>Email</th>
+        <th>License Number</th>
+    </tr>
+    <tr>
+        <td><span th:text="${customer.customer_id}"/></td>
+        <td><span th:text="${customer.customer_firstName}"/></td>
+        <td><span th:text="${customer.customer_lastName}"/></td>
+        <td><span th:text="${customer.customer_address}"/></td>
+        <td><span th:text="${customer.customer_city}"/></td>
+        <td><span th:text="${customer.customer_zip}"/></td>
+        <td><span th:text="${customer.customer_phoneNo}"/></td>
+        <td><span th:text="${customer.customer_email}"/></td>
+        <td><span th:text="${customer.customer_driver_licenseNo}"/></td>
+    </tr>
+</table>
+</body>
+</html>

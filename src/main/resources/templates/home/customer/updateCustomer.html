@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Customer</title>
+</head>
+<body>
+<h1 style="color: orange; text-align: center" >Edit Customer</h1>
+<p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<form action="/customer/updateCustomers" method="post">
+    <label>Edit ID</label><br>
+    <input type="text" name="customer_id" th:value="${customer.customer_id}"><br><br>
+    <label>Edit First Name</label><br>
+    <input type="text" name="customer_firstName" th:value="${customer.customer_firstName}"><br><br>
+    <label>Edit Last Name</label><br>
+    <input type="text" name="customer_lastName" th:value="${customer.customer_lastName}"><br><br>
+    <label>Edit Addresse</label><br>
+    <input type="text" name="customer_address" th:value="${customer.customer_address}"><br><br>
+    <label>Edit City</label><br>
+    <input type="text" name="customer_city" th:value="${customer.customer_city}"><br><br>
+    <label>Edit Zip Code</label><br>
+    <input type="text" name="customer_zip" th:value="${customer.customer_zip}"><br><br>
+    <label>Edit Phone Number</label><br>
+    <input type="text" name="customer_phoneNo" th:value="${customer.customer_phoneNo}"><br><br>
+    <label>Edit Email Address</label><br>
+    <input type="text" name="customer_email" th:value="${customer.customer_email}"><br><br>
+    <label>Edit Driving License Number</label><br>
+    <input type="text" name="customer_driver_licenseNo" th:value="${customer.customer_driver_licenseNo}"><br><br>
+
+    <input type="submit" value="Save Changes">
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View One Rental Contract</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+    <style>
+        table, th, td{border: 1px solid black; border-collapse: collapse;}
+        th,td {padding: 5px; text-align: center;}
+        h1{text-align: center; color: orange;}
+        p{text-align: center;}
+    </style>
+</head>
+<body>
+<h1>Rental Contract's Detail</h1>
+<p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<table style="width: 100%">
+    <tr>
+        <th>Rental Contract ID</th> <th>Start Date</th> <th>End Date</th> <th>Customer ID</th>
+        <th>Motorhome ID</th> <th>Extra ID</th>
+    </tr>
+    <tr>
+        <td><span th:text="${rentalContract.rentalContract_id}"/></td>
+        <td><span th:text="${rentalContract.rentalContract_startDate}"/></td>
+        <td><span th:text="${rentalContract.rentalContract_endDate}"/></td>
+        <td><span th:text="${rentalContract.customer_id}"/></td>
+        <td><span th:text="${rentalContract.motorhome_id}"/></td>
+        <td><span th:text="${rentalContract.extra_id}"/></td>
+
+
+    </tr>
+</table>
+</body>
+</html>

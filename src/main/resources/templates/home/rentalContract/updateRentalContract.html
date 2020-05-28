@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update RentalContract</title>
+</head>
+<body>
+<h1 style="text-align: center" >Edit Rental Contract</h1>
+<p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<form action="/rentalContract/updateRentalContract" method="post">
+    <label>Edit Rental Contract ID</label><br>
+    <input type="text" name="rentalContract_id" th:value="${rentalContract.rentalContract_id}"><br><br>
+    <label>Edit Rental Contract ID</label><br>
+    <input type="text" name="rentalContract_startDate" th:value="${rentalContract.rentalContract_startDate}"><br><br>
+    <label>Edit Rental Contract ID</label><br>
+    <input type="text" name="rentalContract_endDate" th:value="${rentalContract.rentalContract_endDate}"><br><br>
+    <label>Edit Rental Contract ID</label><br>
+    <input type="text" name="customer_id" th:value="${rentalContract.customer_id}"><br><br>
+    <label>Edit Rental Contract ID</label><br>
+    <input type="text" name="motorhome_id" th:value="${rentalContract.motorhome_id}"><br><br>
+    <label>Edit Rental Contract ID</label><br>
+    <input type="text" name="extra_id" th:value="${rentalContract.extra_id}"><br><br>
+
+    <input type="submit" value="Save Changes">
+</form>
+</body>
+</html>

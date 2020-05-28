@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Rental Contract</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+</head>
+<h1>Create A New Rental Contract</h1>
+<p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
+<form action="/createRentalContract" method="post">
+
+    <label>Enter Start Date</label>
+    <input type="text" name="rentalContract_startDate"><br><br>
+    <label>Enter End Date</label>
+    <input type="text" name="rentalContract_endDate"><br><br>
+    <label>Enter Customer ID</label>
+    <input type="text" name="customer_id"><br><br>
+    <label>Enter Motorhome ID</label>
+    <input type="text" name="motorhome_id"><br><br>
+    <label>Enter Extra ID</label>
+    <input type="text" name="extra_id"><br><br>
+    <input style="background-color: orange" type="submit" value="Create New Rental Contract">
+</form>
+
+</body>
+</html>
