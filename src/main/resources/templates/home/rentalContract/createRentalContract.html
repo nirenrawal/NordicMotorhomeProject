@@ -10,15 +10,16 @@
 <form action="/createRentalContract" method="post">
 
     <label>Enter Start Date</label>
-    <input type="text" name="rentalContract_startDate"><br><br>
+    <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_startDate"><br><br>
     <label>Enter End Date</label>
-    <input type="text" name="rentalContract_endDate"><br><br>
+    <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_endDate"><br><br>
     <label>Enter Customer ID</label>
-    <input type="text" name="customer_id"><br><br>
+    <input type="number" max="9999" placeholder="numbers only" name="customer_id"><br><br>
     <label>Enter Motorhome ID</label>
-    <input type="text" name="motorhome_id"><br><br>
+    <input type="number" max="9999" placeholder="numbers only" name="motorhome_id"><br><br>
     <label>Enter Extra ID</label>
-    <input type="text" name="extra_id"><br><br>
+    <input type="number" max="9999" placeholder="numbers only" name="extra_id"><br><br>
+
     <input style="background-color: orange" type="submit" value="Create New Rental Contract">
 </form>
 

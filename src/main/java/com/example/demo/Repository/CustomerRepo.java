@@ -21,10 +21,10 @@ public class CustomerRepo {
     }
 
     public Customer createCustomer(Customer customer){
-        String sql = "INSERT INTO customer(customer_id, customer_firstName, customer_lastName, " +
+        String sql = "INSERT INTO customer(customer_firstName, customer_lastName, " +
                 "customer_address, customer_city, customer_zip, customer_phoneNo, customer_email, " +
-                "customer_driver_licenseNo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, customer.getCustomer_id(), customer.getCustomer_firstName(),
+                "customer_driver_licenseNo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, customer.getCustomer_firstName(),
                 customer.getCustomer_lastName(), customer.getCustomer_address(),customer.getCustomer_city(),
                 customer.getCustomer_zip(), customer.getCustomer_phoneNo(),
                 customer.getCustomer_email(), customer.getCustomer_driver_licenseNo());
@@ -40,12 +40,22 @@ public class CustomerRepo {
 
     public Customer updateCustomer(int customer_id, Customer customer) {
         String sql = "UPDATE customer SET customer_firstName=?, customer_lastName=?, customer_address=?, " +
-                "customer_city=?, customer_zip=?, customer_phoneNo=?, customer_email=?, customer_driver_licenseNo=?, " +
-                "customer_driver_license_issued=? WHERE customer_id=?";
+                "customer_city=?, customer_zip=?, customer_phoneNo=?, customer_email=?, customer_driver_licenseNo=?," +
+                "WHERE customer_id=?";
         template.update(sql, customer.getCustomer_firstName(), customer.getCustomer_lastName(), customer.getCustomer_address(),
-                customer.getCustomer_city(), customer.getCustomer_zip(),  customer.getCustomer_phoneNo(),
+                customer.getCustomer_city(), customer.getCustomer_zip(), customer.getCustomer_phoneNo(),
                 customer.getCustomer_email(), customer.getCustomer_driver_licenseNo(), customer.getCustomer_id());
         return null;
+//        public Motorhome updateMotorhome(int motorhome_id, Motorhome motorhome) {
+//            String sql = "UPDATE motorhome SET motorhome_type=?, motorhome_brand=?, motorhome_model=?, motorhome_beds=?, " +
+//                    "motorhome_registration=?, motorhome_odometer=?, motorhome_availability=?, motorhome_fuelType=?, " +
+//                    "motorhome_fuelAmount=?, motorhome_price=? WHERE motorhome_id=?";
+//            template.update(sql, motorhome.getMotorhome_type(), motorhome.getMotorhome_brand(), motorhome.getMotorhome_model(),
+//                    motorhome.getMotorhome_beds(), motorhome.getMotorhome_registration(), motorhome.getMotorhome_odometer(),
+//                    motorhome.getMotorhome_availability(), motorhome.getMotorhome_fuelType(),
+//                    motorhome.getMotorhome_fuelAmount(), motorhome.getMotorhome_price(), motorhome.getMotorhome_id());
+//            return null;
+
     }
 
 

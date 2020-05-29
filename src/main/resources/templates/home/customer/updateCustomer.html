@@ -3,30 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Customer</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
 </head>
 <body>
 <h1 style="color: orange; text-align: center" >Edit Customer</h1>
 <p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
-<form action="/customer/updateCustomers" method="post">
-    <label>Edit ID</label><br>
-    <input type="text" name="customer_id" th:value="${customer.customer_id}"><br><br>
+<form action="/customer/updateCustomer" method="post">
+
+<!--    <label>Edit ID</label><br>-->
+<!--    <input type="text" name="customer_id" th:value="${customer.customer_id}"><br><br>-->
+
     <label>Edit First Name</label><br>
     <input type="text" name="customer_firstName" th:value="${customer.customer_firstName}"><br><br>
+
     <label>Edit Last Name</label><br>
     <input type="text" name="customer_lastName" th:value="${customer.customer_lastName}"><br><br>
+
     <label>Edit Addresse</label><br>
     <input type="text" name="customer_address" th:value="${customer.customer_address}"><br><br>
+
     <label>Edit City</label><br>
     <input type="text" name="customer_city" th:value="${customer.customer_city}"><br><br>
+
     <label>Edit Zip Code</label><br>
     <input type="text" name="customer_zip" th:value="${customer.customer_zip}"><br><br>
+
     <label>Edit Phone Number</label><br>
     <input type="text" name="customer_phoneNo" th:value="${customer.customer_phoneNo}"><br><br>
+
     <label>Edit Email Address</label><br>
     <input type="text" name="customer_email" th:value="${customer.customer_email}"><br><br>
+
     <label>Edit Driving License Number</label><br>
     <input type="text" name="customer_driver_licenseNo" th:value="${customer.customer_driver_licenseNo}"><br><br>
 
+    <!--<h1 style="text-align: center">Edit Motorhome</h1>
+<p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<form action="/motorhome/updateMotorhome" method="post">
+    <label>Edit ID</label><br>
+    <input type="text" name="motorhome_id" th:value="${motorhome.motorhome_id}"><br><br>
+    <label>Edit Motorhome Type</label><br>
+    <input type="text" name="motorhome_type" th:value="${motorhome.motorhome_type}"><br><br>
+    <label>Edit Motorhome Brand</label><br>
+    <input type="text" name="motorhome_brand" th:value="${motorhome.motorhome_brand}"><br><br>
+    <label>Edit Motorhome Model</label><br>
+    <input type="text" name="motorhome_model" th:value="${motorhome.motorhome_model}"><br><br>
+    <label>Edit Number of Beds</label><br>
+    <input type="text" name="motorhome_beds" th:value="${motorhome.motorhome_beds}"><br><br>
+    <label>Edit Registration Number</label><br>
+    <input type="text" name="motorhome_registration" th:value="${motorhome.motorhome_registration}"><br><br>
+    <label>Edit Odometer Count</label><br>
+    <input type="text" name="motorhome_odometer" th:value="${motorhome.motorhome_odometer}"><br><br>
+    <label>Edit Availability</label><br>
+    <input type="text" name="motorhome_availability" th:value="${motorhome.motorhome_availability}"><br><br>
+    <label>Edit Fuel Type</label><br>
+    <input type="text" name="motorhome_fuelType" th:value="${motorhome.motorhome_fuelType}"><br><br>
+    <label>Edit Fuel Amount</label><br>
+    <input type="text" name="motorhome_fuelAmount" th:value="${motorhome.motorhome_fuelAmount}"><br><br>
+    <label>Edit Price</label><br>
+    <input type="text" name="motorhome_price" th:value="${motorhome.motorhome_price}"><br><br>
+
+
+    <input type="submit" value="Save Changes">-->
     <input type="submit" value="Save Changes">
 </form>
 </body>

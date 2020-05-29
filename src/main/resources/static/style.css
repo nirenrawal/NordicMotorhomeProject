@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    width: 1170px;
+    margin: auto;
+}
+
+header{
+    background: url("motor.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.nav-area{
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+    margin-right: 5px;
+}
+
+
+
+.nav-area li{
+    display: inline-flex;
+}
+
+.nav-area li a{
+    color: white;
+    text-decoration: none;
+    padding: 1px 25px;
+    font-family: fantasy;
+    font-size: 15px;
+    display: block;
+}
+
+.nav-area li a:hover{
+    background: gray;
+    color: #333333;
+}
+
+.logo img{
+    float: left;
+    height: auto;
+    margin-top: 10px;
+    width: 8%;
+    height: 5%;
+    padding: 20px;
+}
+
+
+.welcome-text{
+    position: absolute;
+    width: 1000px;
+    height: 300px;
+    margin: 10% 15%;
+    text-align: center;
+
+}
+
+.welcome-text h1{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 45px;
+    font-family: fantasy;
+    font-weight: bolder;
+}
+
+.welcome-text p{
+    text-transform: uppercase;
+    font-size: 20px;
+    color: white;
+    font-family: fantasy;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.footer p{
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.btn-create{
+    color: #333333;
+    padding: 10px 30px;
+    text-align: center;
+    margin: auto;
+
+}
+
+.btn-create {
+    text-decoration: none;
+    margin: 20px;
+    color: white;
+    display: inline-table;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    background: rgb(90, 146, 160);
+    padding: 15px;
+    text-align: center;
+    font-family: fantasy;
+    border-radius: 23px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.btn-create:hover {
+    background: beige;
+}
