@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Customer</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+    <style>
+        h1{color:black; text-align: center;}
+        p{text-align: center}
+        label{margin: 30px; font-family: cursive}
+        input{border-radius: 10px; padding: 10px; margin-left: 30px;}
+    </style>
 </head>
-<body>
-<h1 style="color: orange; text-align: center" >Edit Customer</h1>
-<p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<body style="background-color:  #1e90d263;">
+<h1 >Edit Customer</h1>
+    <p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+
 <form action="/customer/updateCustomers" method="post">
-    <label>Edit ID</label><br>
+    <label >Edit ID</label><br>
     <input type="text" name="customer_id" th:value="${customer.customer_id}"><br><br>
     <label>Edit First Name</label><br>
     <input type="text" name="customer_firstName" th:value="${customer.customer_firstName}"><br><br>
@@ -27,7 +35,8 @@
     <label>Edit Driving License Number</label><br>
     <input type="text" name="customer_driver_licenseNo" th:value="${customer.customer_driver_licenseNo}"><br><br>
 
-    <input type="submit" value="Save Changes">
+    <input  type="submit" class="input-format input-1" value="Save Changes">
 </form>
 </body>
+
 </html>
