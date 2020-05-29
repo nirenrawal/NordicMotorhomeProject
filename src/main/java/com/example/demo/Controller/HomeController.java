@@ -72,11 +72,22 @@ public class HomeController {
         return "home/customer/updateCustomer";
     }
 
-    @PostMapping("/customer/updateCustomers")
+    @PostMapping("/customer/updateCustomer")
     public String updateCustomer(@ModelAttribute Customer customer) {
         customerService.updateCustomer(customer.getCustomer_id(), customer);
         return "redirect:/customer";
     }
+    /*@GetMapping("/motorhome/updateMotorhome/{motorhome_id}")
+    public String updateMotorhome(@PathVariable("motorhome_id") int motorhome_id, Model model){
+        model.addAttribute("motorhome", motorhomeService.findMotorhome(motorhome_id));
+        return "home/motorhome/updateMotorhome";
+    }
+
+    @PostMapping("/motorhome/updateMotorhome")
+    public String updateMotorhome(@ModelAttribute Motorhome motorhome) {
+        motorhomeService.updateMotorhome(motorhome.getMotorhome_id(), motorhome);
+        return "redirect:/motorhome";
+    }*/
 
 //x-----------x----------x-----------x-----------x----------x-----------x-----------x----------x-----------x//
 

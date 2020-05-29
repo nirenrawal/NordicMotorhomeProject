@@ -30,7 +30,7 @@ public class RentalContractRepo {
     }
 
     public RentalContract findRentalContract(int rentalContract_id){
-        String sql = "SELECT * FROM motorhome WHERE motorhome_id = ?";
+        String sql = "SELECT * FROM rentalContract WHERE rentalContract_id = ?";
         RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
         RentalContract rentalContract = template.queryForObject(sql, rowMapper, rentalContract_id);
         return rentalContract;
@@ -41,8 +41,7 @@ public class RentalContractRepo {
         String sql = "UPDATE rentalContract SET rentalContract_startDate=?, rentalContract_endDate=?, " +
                 "customer_id=?, motorhome_id=?, extra_id=?";
         template.update(sql, rentalContract.getRentalContract_startDate(), rentalContract.getRentalContract_endDate(),
-                rentalContract.getCustomer_id(), rentalContract.getMotorhome_id(), rentalContract.getExtra_id(),
-                rentalContract.getRentalContract_id());
+                rentalContract.getCustomer_id(), rentalContract.getMotorhome_id(), rentalContract.getExtra_id());
         return null;
     }
 
