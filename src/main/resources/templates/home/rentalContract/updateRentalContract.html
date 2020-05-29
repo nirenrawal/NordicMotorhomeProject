@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Update RentalContract</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+    <style>
+        h1{color:black; text-align: center;}
+        p{text-align: center}
+        label{margin: 30px; font-family: cursive}
+        input{border-radius: 10px; padding: 10px; margin-left: 30px;}
+    </style>
 </head>
-<body>
-<h1 style="text-align: center" >Edit Rental Contract</h1>
-<p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<body  style="background-color:  #1e90d263;">
+<h1  >Edit Rental Contract</h1>
+<p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
 <form action="/rentalContract/updateRentalContract" method="post">
     <label>Edit Rental Contract ID</label><br>
     <input type="text" name="rentalContract_id" th:value="${rentalContract.rentalContract_id}"><br><br>
@@ -21,7 +28,7 @@
     <label>Edit Extra ID</label><br>
     <input type="text" name="extra_id" th:value="${rentalContract.extra_id}"><br><br>
 
-    <input type="submit" value="Save Changes">
+    <input  type="submit" class="input-format input-1" value="Save Changes">
 </form>
 </body>
 </html>

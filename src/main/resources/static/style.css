@@ -45,6 +45,7 @@ header{
 }
 
 .logo img{
+
     float: left;
     height: auto;
     margin-top: 10px;
@@ -52,7 +53,6 @@ header{
     height: 5%;
     padding: 20px;
 }
-
 
 .welcome-text{
     position: absolute;
@@ -118,7 +118,7 @@ header{
     font-weight: bold;
     font-size: 25px;
 }
-
-.btn-create:hover {
+.btn-create:hover{
     background: beige;
+    color: skyblue;
 }

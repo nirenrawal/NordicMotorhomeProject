@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Motorhome</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+    <style>
+        h1{color:black; text-align: center;}
+        p{text-align: center}
+        label{margin: 30px; font-family: cursive}
+        input{border-radius: 10px; padding: 10px; margin-left: 30px;}
+    </style>
 </head>
-<body>
-<h1 style="text-align: center">Edit Motorhome</h1>
-<p style="text-align: center"><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<body style="background-color:  #1e90d263;">
+<h1 >Edit Motorhome</h1>
+<p ><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
 <form action="/motorhome/updateMotorhome" method="post">
     <label>Edit ID</label><br>
     <input type="text" name="motorhome_id" th:value="${motorhome.motorhome_id}"><br><br>
@@ -32,7 +39,7 @@
     <input type="text" name="motorhome_price" th:value="${motorhome.motorhome_price}"><br><br>
 
 
-    <input type="submit" value="Save Changes">
+    <input  type="submit" class="input-format input-1" value="Save Changes">
 </form>
 </body>
 </html>

@@ -5,35 +5,36 @@
     <title>Create New Motorhome</title>
     <link rel="stylesheet" type="text/css" href="motor.css">
 </head>
-<h1>Create A New Motorhome</h1>
-<p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
-<form action="/createMotorhome" method="post">
+<div class="back-format">
+    <h1>Create A New Motorhome</h1>
+    <p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+    <form action="/createMotorhome" method="post">
 
-    <label>Enter Motorhome Type</label>
-    <input type="text" name="motorhome_type"><br><br>
-    <label>Enter Motorhome Brand</label>
-    <input type="text" name="motorhome_brand"><br><br>
-    <label>Enter Motorhome Model</label>
-    <input type="text" name="motorhome_model"><br><br>
-    <label>Enter Nr. of Beds</label>
-    <input type="text" name="motorhome_beds"><br><br>
-    <label>Enter Registration Nr.</label>
-    <input type="text" name="motorhome_registration"><br><br>
-    <label>Enter Odometer Count</label>
-    <input type="text" name="motorhome_odometer"><br><br>
-    <label>Enter Availability</label>
-    <input type="text" name="motorhome_availability"><br><br>
-    <label>Enter Fuel Type</label>
-    <input type="text" name="motorhome_fuelType"><br><br>
-    <label>Enter Amount of Fuel</label>
-    <input type="text" name="motorhome_fuelAmount"><br><br>
-    <label>Enter Price</label>
-    <input type="text" name="motorhome_price"><br><br>
+        <label class="label-format">Enter Motorhome Type</label>
+        <input type="text" class="input-format" name="motorhome_type" required><br><br>
+        <label class="label-format">Enter Motorhome Brand</label>
+        <input type="text" class="input-format" name="motorhome_brand" required><br><br>
+        <label class="label-format">Enter Motorhome Model</label>
+        <input type="text" class="input-format" name="motorhome_model" required><br><br>
+        <label class="label-format">Enter Nr. of Beds</label>
+        <input type="text" class="input-format" name="motorhome_beds" required><br><br>
+        <label class="label-format">Enter Registration Nr.</label>
+        <input type="text"  class="input-format"name="motorhome_registration" required><br><br>
+        <label class="label-format">Enter Odometer Count</label>
+        <input type="number" placeholder="Enter odometer count" max="9999999" class="input-format" name="motorhome_odometer" required><br><br>
+        <label class="label-format">Enter Availability</label>
+        <input type="text" class="input-format" name="motorhome_availability"required><br><br>
+        <label class="label-format">Enter Fuel Type</label>
+        <input type="text" class="input-format" name="motorhome_fuelType"required><br><br>
+        <label class="label-format">Enter Amount of Fuel</label>
+        <input type="number" placeholder="Enter fuel amt in %" max="999" class="input-format" name="motorhome_fuelAmount"required><br><br>
+        <label class="label-format">Enter Price</label>
+        <input type="number" placeholder="Enter price in Euro" max="9999999" class="input-format" name="motorhome_price"required><br><br>
 
 
 
-    <input style="background-color: orange" type="submit" value="Create New Motorhome">
-</form>
-
+        <input  type="submit" class="input-format input-1"  value="Create New Motorhome">
+    </form>
+</div>
 </body>
 </html>

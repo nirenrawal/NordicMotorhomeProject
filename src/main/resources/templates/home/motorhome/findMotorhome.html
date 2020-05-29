@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:width="http://java.sun.com/JSP/Page">
 <head>
     <meta charset="UTF-8">
     <title>View One Motorhomer</title>
     <link rel="stylesheet" type="text/css" href="motor.css">
     <style>
-        table, th, td{border: 1px solid black; border-collapse: collapse;}
+        table, th, td{border: 4px solid black; border-collapse: collapse;}
         th,td {padding: 5px; text-align: center;}
-        h1{text-align: center; color: orange;}
+        h1{text-align: center; color: black;}
         p{text-align: center;}
     </style>
 </head>
-<body>
+<body style="background-color:#1e90d263;">
 <h1>Motorhome's Detail</h1>
 <p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
 <table style="width: 100%">
@@ -32,7 +32,6 @@
         <td><span th:text="${motorhome.motorhome_fuelType}"/></td>
         <td><span th:text="${motorhome.motorhome_fuelAmount}"/></td>
         <td><span th:text="${motorhome.motorhome_price}"/></td>
-
     </tr>
 </table>
 </body>
