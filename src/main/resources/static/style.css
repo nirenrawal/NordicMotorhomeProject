@@ -4,11 +4,7 @@
 }
 
 .wrapper{
-<<<<<<< HEAD
-    width: 1170;
-=======
     width: 1170px;
->>>>>>> 163460772a16de810815dc42cb1f7cfce2846695
     margin: auto;
 }
 
@@ -28,11 +24,7 @@ header{
     margin-right: 5px;
 }
 
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 163460772a16de810815dc42cb1f7cfce2846695
 
 .nav-area li{
     display: inline-flex;
@@ -53,10 +45,7 @@ header{
 }
 
 .logo img{
-<<<<<<< HEAD
-   
-=======
->>>>>>> 163460772a16de810815dc42cb1f7cfce2846695
+
     float: left;
     height: auto;
     margin-top: 10px;
@@ -65,21 +54,13 @@ header{
     padding: 20px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 163460772a16de810815dc42cb1f7cfce2846695
 .welcome-text{
     position: absolute;
     width: 1000px;
     height: 300px;
     margin: 10% 15%;
     text-align: center;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 163460772a16de810815dc42cb1f7cfce2846695
 }
 
 .welcome-text h1{
@@ -137,14 +118,7 @@ header{
     font-weight: bold;
     font-size: 25px;
 }
-<<<<<<< HEAD
 .btn-create:hover{
     background: beige;
     color: skyblue;
 }
-=======
-
-.btn-create:hover {
-    background: beige;
-}
->>>>>>> 163460772a16de810815dc42cb1f7cfce2846695
