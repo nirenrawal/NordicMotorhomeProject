@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Calculating...</h2>
+<hr>
+Start date: <span th:text="${startingDate}"/><br>
+End date :  <span th:text="${endingDate}"/><br>
+Total number of days: <span th:text="${totalNumberOfDays}"/><br>
+<hr>
+Season price: <span th:text="${seasonPrice}"/><br>
+Total price with season price: <span th:text="${totalPriceAndSeasonPrice}"/><br>
+<hr>
+Motorhome brand : <span th:text="${brand}"/><br>
+Price for brand : <span th:text="${priceForBrand}"/><br>
+Total price with brand price : <span th:text="${totalPriceAndPriceForBrand}"/><br>
+<hr>
+Motorhome model : <span th:text="${model}"/><br>
+Price for model : <span th:text="${priceForModel}"/><br>
+Total price with model price : <span th:text="${totalPriceAndPriceForModel}"/><br>
+<hr>
+Fuel amount : <span th:text="${fuelAmount}"/>%<br>
+Total price with fuel costs : <span th:text="${totalPriceAfterFuelAmount}"/><br>
+
+<form action="/distance" method="get">
+    <label for="distancekm">Distance driven:</label>
+    <input type="number" id="distancekm" name="distance">
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

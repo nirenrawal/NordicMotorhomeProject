@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Welcome to additional costs !</h1>
+<hr>
+<form action="/finishCalculation" method="get">
+    <label for="serviceID">Service</label><br>
+    <input type="number" name="service" id="serviceID"><br>
+    <hr>
+    <label for="transportID">Transport</label><br>
+    <input type="number" name="transport" id="transportID"><br>
+    <hr>
+    <label>Table of extras</label>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="extra: ${extras}">
+            <td th:text="${extra.extra_id}"/>
+            <td th:text="${extra.extra_name}"/>
+            <td th:text="${extra.extra_price}"/>
+        </tbody>
+    </table>
+
+    <label for="item1ID">Item 1</label><br>
+    <input type="number" name="item1" id="item1ID"><br>
+    <label for="item2ID">Item 2</label><br>
+    <input type="number" name="item2" id="item2ID"><br>
+    <label for="item3ID">Item 3</label><br>
+    <input type="number" name="item3" id="item3ID"><br>
+    <label for="item4ID">Item 4</label><br>
+    <input type="number" name="item4" id="item4ID"><br>
+    <label for="item5ID">Item 5</label><br>
+    <input type="number" name="item5" id="item5ID"><br>
+
+    <button type="submit">Finish</button>
+</form>
+</body>
+</html>

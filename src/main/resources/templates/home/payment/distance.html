@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Calculating distance driven costs...</h1>
+<hr>
+Distance driven:                <span th:text="${distanceDriven}"/><br>
+Number of days:                 <span th:text="${days}"/><br>
+Average kilometers per day:     <span th:text="${averageDistance}"/><br>
+Total price with distance cost: <span th:text="${totalPriceWithDistanceCost}"/><br><br>
+
+<form action="/addExtras" method="get">
+    <button type="submit">Proceed to additional costs</button>
+</form>
+</body>
+</html>
