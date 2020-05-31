@@ -39,9 +39,10 @@ public class RentalContractRepo {
 
     public RentalContract updateRentalContract(int rentalContract_id, RentalContract rentalContract) {
         String sql = "UPDATE rentalContract SET rentalContract_startDate=?, rentalContract_endDate=?, " +
-                "customer_id=?, motorhome_id=?, extra_id=?";
+                "customer_id=?, motorhome_id=?, extra_id=? WHERE rentalContract_id=?";
         template.update(sql, rentalContract.getRentalContract_startDate(), rentalContract.getRentalContract_endDate(),
-                rentalContract.getCustomer_id(), rentalContract.getMotorhome_id(), rentalContract.getExtra_id());
+                rentalContract.getCustomer_id(), rentalContract.getMotorhome_id(), rentalContract.getExtra_id(),
+                rentalContract.getRentalContract_id());
         return null;
     }
 

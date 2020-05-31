@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.request.WebRequest;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Scanner;
 
 @Controller
 public class HomeController {
@@ -27,8 +31,30 @@ public class HomeController {
     RentalContractService rentalContractService;
 
     @GetMapping("/")
+    public String login() {
+        return "home/login";
+    }
+
+    @GetMapping("/index")
     public String index() {
         return "home/index";
+    }
+
+    //LOGIN METHOD
+    @PostMapping("/index")
+    public String mainMenu(WebRequest wr) throws FileNotFoundException {
+
+        String username = wr.getParameter("uname");
+        String password = wr.getParameter("psw");
+
+        Scanner scanner = new Scanner(new File("password.txt"));
+        String pw = scanner.next();
+
+        if(username.equals("employee") && password.equals(pw)){
+            return "home/index";
+        } else {
+            return "home/login";
+        }
     }
 
     //CUSTOMER
