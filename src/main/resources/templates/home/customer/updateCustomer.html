@@ -35,23 +35,23 @@
 
 <form action="/customer/updateCustomer" method="post">
 <!--    <label >Edit ID</label><br>-->
-   <input type="hidden" name="customer_id" th:value="${customer.customer_id}"><br><br>
+   <input type="hidden" name="customer_id" th:value="${customer.customer_id}" required><br><br>
     <label>Edit First Name</label><br>
-    <input type="text" name="customer_firstName" th:value="${customer.customer_firstName}"><br><br>
+    <input type="text" name="customer_firstName" th:value="${customer.customer_firstName}" required><br><br>
     <label>Edit Last Name</label><br>
-    <input type="text" name="customer_lastName" th:value="${customer.customer_lastName}"><br><br>
+    <input type="text" name="customer_lastName" th:value="${customer.customer_lastName}" required><br><br>
     <label>Edit Addresse</label><br>
-    <input type="text" name="customer_address" th:value="${customer.customer_address}"><br><br>
+    <input type="text" name="customer_address" th:value="${customer.customer_address}" required><br><br>
     <label>Edit City</label><br>
-    <input type="text" name="customer_city" th:value="${customer.customer_city}"><br><br>
+    <input type="text" name="customer_city" th:value="${customer.customer_city}" required><br><br>
     <label>Edit Zip Code</label><br>
-    <input type="text" name="customer_zip" th:value="${customer.customer_zip}"><br><br>
+    <input type="text" name="customer_zip" th:value="${customer.customer_zip}" required><br><br>
     <label>Edit Phone Number</label><br>
-    <input type="text" name="customer_phoneNo" th:value="${customer.customer_phoneNo}"><br><br>
+    <input type="text" name="customer_phoneNo" th:value="${customer.customer_phoneNo}" required><br><br>
     <label>Edit Email Address</label><br>
-    <input type="text" name="customer_email" th:value="${customer.customer_email}"><br><br>
+    <input type="text" name="customer_email" th:value="${customer.customer_email}" required><br><br>
     <label>Edit Driving License Number</label><br>
-    <input type="text" name="customer_driver_licenseNo" th:value="${customer.customer_driver_licenseNo}"><br><br>
+    <input type="text" name="customer_driver_licenseNo" th:value="${customer.customer_driver_licenseNo}" required><br><br>
 
     <input  type="submit" class="input-format input-1" value="Save Changes">
 </form>

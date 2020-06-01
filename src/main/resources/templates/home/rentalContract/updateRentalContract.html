@@ -52,9 +52,9 @@
 
     </select><br><br>
     <label>Edit Start Date</label><br>
-    <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_startDate" th:value="${rentalContract.rentalContract_startDate}"><br><br>
+    <input type="text" placeholder="dd-mm-yyyy" name="rentalContract_startDate" th:value="${rentalContract.rentalContract_startDate}" required><br><br>
     <label>Edit End Date</label><br>
-    <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_endDate" th:value="${rentalContract.rentalContract_endDate}"><br><br>
+    <input type="text" placeholder="dd-mm-yyyy" name="rentalContract_endDate" th:value="${rentalContract.rentalContract_endDate}" required><br><br>
 
 
     <input  type="submit" class="input-format input-1" value="Save Changes">
