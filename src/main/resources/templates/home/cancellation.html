@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cancellation</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
+</head>
+<body>
+<h1>Cancellation page</h1>
+<p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
+
+<a href="/index">
+    <button class="btn-create" id="btn-back">Back to home </button>
+</a>
+<form action="/cancellationBill" method="post">
+    <label class="label-format">Enter Rental Contract ID</label>
+    <input type="number" class="input-format" name="inputID" required><br><br>
+    <label class="label-format">Enter Today's Date</label>
+    <input type="text" class="input-format" placeholder="dd/mm/yyyy" name="inputDate" required><br><br>
+
+    <input  type="submit" class="input-format input-1" value="Confirm cancellation">
+
+</form>
+</body>
+</html>

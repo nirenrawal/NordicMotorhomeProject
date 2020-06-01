@@ -2,22 +2,23 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>cancellation bill</title>
     <link rel="stylesheet" type="text/css" href="motor.css">
 </head>
 <body>
-<h1>Payment finished...</h1>
+<h1>Cancellation Bill</h1>
 <p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
+
 <a href="/index">
-    <button class="btn-create" id="btn-back">Back to home </button>
+    <button class="btn-create" id="btn-back">Back to home</button>
 </a>
 <table style="width: 20%">
     <tr>
-        <th>Customer Last Name</th> <th>TOTAL PRICE</th>
+        <th>Number of days</th> <th>Cancellation fee</th>
     </tr>
     <tr>
-        <td><span th:text="${customer}"/></td>
-        <td><span th:text="${finalPrice}"/>€</td>
+        <td><span th:text="${cancelNumberOfDays}"/></td>
+        <td><span th:text="${finalCancelFee}"/>€</td>
     </tr>
 </table>
 </body>

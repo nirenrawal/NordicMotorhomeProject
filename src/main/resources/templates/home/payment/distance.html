@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
 </head>
 <body>
 <h1>Calculating distance driven costs...</h1>
+<p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
 <hr>
-Distance driven:                <span th:text="${distanceDriven}"/><br>
+Distance driven:                <span th:text="${distanceDriven}"/>km<br>
 Number of days:                 <span th:text="${days}"/><br>
-Average kilometers per day:     <span th:text="${averageDistance}"/><br>
-Total price with distance cost: <span th:text="${totalPriceWithDistanceCost}"/><br><br>
+Average kilometers per day:     <span th:text="${averageDistance}"/>km<br>
+Total price with distance cost: <span th:text="${totalPriceWithDistanceCost}"/>€<br><br>
 
 <form action="/addExtras" method="get">
     <button type="submit">Proceed to additional costs</button>

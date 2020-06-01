@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="motor.css">
 </head>
 <body>
 <h1>Welcome to the "Make Payment" section !</h1>
+<p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
 <hr>
+<a href="/index">
+    <button class="btn-create" id="btn-back">Back to home </button>
+</a>
+<br>
 <form action="/getRentalContractID" method="get">
     <label for="customer_LastName">Customer last name:</label>
-    <input type="text" id="customer_LastName" name="customer_LastName">
+    <input type="text" id="customer_LastName" name="customer_LastName" required>
     <button type="submit">Submit</button>
 </form>
 </body>
