@@ -9,28 +9,28 @@
 <h1>Calculating...</h1>
 <p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
 <hr>
-Start date: <span th:text="${startingDate}"/><br>
-End date :  <span th:text="${endingDate}"/><br>
-Total number of days: <span th:text="${totalNumberOfDays}"/><br>
+<label class="label-format">Start date:</label><span th:text="${startingDate}"/><br>
+<label class="label-format">End date:</label><span th:text="${endingDate}"/><br>
+    <label class="label-format">Total number of days:</label><span th:text="${totalNumberOfDays}"/><br>
 <hr>
-Season price: <span th:text="${seasonPrice}"/>€<br>
-Total price with season price: <span th:text="${totalPriceAndSeasonPrice}"/>€<br>
+<label class="label-format">Season price:</label><span th:text="${seasonPrice}"/>€<br>
+<label class="label-format">Total price with season price:</label><span th:text="${totalPriceAndSeasonPrice}"/>€<br>
 <hr>
-Motorhome brand : <span th:text="${brand}"/><br>
-Price for brand : <span th:text="${priceForBrand}"/>€<br>
-Total price with brand price : <span th:text="${totalPriceAndPriceForBrand}"/>€<br>
+<label class="label-format">Motorhome brand:</label><span th:text="${brand}"/><br>
+<label class="label-format">Price for brand:</label><span th:text="${priceForBrand}"/>€<br>
+<label class="label-format">Total price with brand price:</label><span th:text="${totalPriceAndPriceForBrand}"/>€<br>
 <hr>
-Motorhome model : <span th:text="${model}"/><br>
-Price for model : <span th:text="${priceForModel}"/>€<br>
-Total price with model price : <span th:text="${totalPriceAndPriceForModel}"/>€<br>
+<label class="label-format">Motorhome model:</label><span th:text="${model}"/><br>
+<label class="label-format">Price for model:</label><span th:text="${priceForModel}"/>€<br>
+<label class="label-format">Total price with model price:</label><span th:text="${totalPriceAndPriceForModel}"/>€<br>
 <hr>
-Fuel amount : <span th:text="${fuelAmount}"/>%<br>
-Total price with fuel costs : <span th:text="${totalPriceAfterFuelAmount}"/>€<br>
+<label class="label-format">Fuel amount:</label><span th:text="${fuelAmount}"/>%<br>
+<label class="label-format">Total price with fuel costs:</label><span th:text="${totalPriceAfterFuelAmount}"/>€<br>
 
 <form action="/distance" method="get">
-    <label for="distancekm">Distance driven:</label>
+    <label class="label-format" for="distancekm">Distance driven:</label>
     <input type="number" id="distancekm" name="distance" placeholder="kilometers" required>
-    <button type="submit">Submit</button>
+    <button class="input-format input-1" type="submit">Submit</button>
 </form>
 </body>
 </html>

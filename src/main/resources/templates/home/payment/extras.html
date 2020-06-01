@@ -9,16 +9,15 @@
 
 <h1>Welcome to additional costs !</h1>
 <p><i>Nordic Motorhome<br>Lygten 37, Copenhagen NV <br>Opening Hours: 10.00 to 18.00 Every weekdays</i></p>
-<hr>
+
 <form action="/finishCalculation" method="get">
-    <label for="serviceID">Service</label><br>
-    <input type="number" name="service" id="serviceID" placeholder="quantity" required><br>
     <hr>
-    <label for="transportID">Transport</label><br>
-    <input type="number" name="transport" id="transportID" placeholder="quantity" required><br>
-    <hr>
-    <label>Table of extras</label>
-    <table style="width: 50%">
+    <label class="label-format" for="serviceID">Service</label>
+    <input type="number" name="service" id="serviceID" placeholder="quantity" required><br><br>
+    <label class="label-format" for="transportID">Transport</label>
+    <input type="number" name="transport" id="transportID" placeholder="quantity" required><br><br>
+
+    <table style="width: 40%">
         <thead>
         <tr>
             <th>Id</th>
@@ -32,20 +31,20 @@
             <td th:text="${extra.extra_name}"/>
             <td th:text="${extra.extra_price}"/>
         </tbody>
-    </table>
+    </table><br><br>
 
-    <label for="item1ID">Bike rack</label><br>
-    <input type="number" name="item1" id="item1ID" placeholder="quantity" required><br>
-    <label for="item2ID">Bed linen</label><br>
-    <input type="number" name="item2" id="item2ID" placeholder="quantity" required><br>
-    <label for="item3ID">Child seat</label><br>
-    <input type="number" name="item3" id="item3ID" placeholder="quantity" required><br>
-    <label for="item4ID">Picnic table</label><br>
-    <input type="number" name="item4" id="item4ID" placeholder="quantity" required><br>
-    <label for="item5ID">Picnic chair</label><br>
-    <input type="number" name="item5" id="item5ID" placeholder="quantity" required><br>
+    <label class="label-format" for="item1ID">Bike rack</label>
+    <input type="number" name="item1" id="item1ID" placeholder="quantity" required><br><br>
+    <label class="label-format" for="item2ID">Bed linen</label>
+    <input type="number" name="item2" id="item2ID" placeholder="quantity" required><br><br>
+    <label class="label-format" for="item3ID">Child seat</label>
+    <input type="number" name="item3" id="item3ID" placeholder="quantity" required><br><br>
+    <label class="label-format" for="item4ID">Picnic table</label>
+    <input type="number" name="item4" id="item4ID" placeholder="quantity" required><br><br>
+    <label class="label-format" for="item5ID">Picnic chair</label>
+    <input type="number" name="item5" id="item5ID" placeholder="quantity" required><br><br>
 
-    <button type="submit">Finish</button>
+    <button class="input-format input-1" type="submit">Finish</button>
 </form>
 </body>
 </html>
