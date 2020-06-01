@@ -5,28 +5,57 @@
     <title>Update RentalContract</title>
     <link rel="stylesheet" type="text/css" href="motor.css">
     <style>
-        h1{color:black; text-align: center;}
-        p{text-align: center}
-        label{margin: 30px; font-family: cursive}
-        input{border-radius: 10px; padding: 10px; margin-left: 30px;}
+    h1{color:black; text-align: center;}
+    p{text-align: center;}
+    label{margin: 30px; font-family: cursive;}
+    input{border-radius: 10px; padding: 10px; margin-left: 30px;}
+
+    button{text-decoration: none;
+    margin: 20px;
+    color: white;
+    display: inline-table;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    background: #4E9CAF;
+    padding: 15px;
+    text-align: center;
+    font-family: fantasy;
+    border-radius: 23px;
+    color: white;
+    font-size: 13px;}
     </style>
+
 </head>
 <body  style="background-color:  #1e90d263;">
 <h1  >Edit Rental Contract</h1>
 <p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+<a href="/rentalContract">
+    <button class="btn-create" id="btn-back">Back</button>
+</a>
+
 <form action="/rentalContract/updateRentalContract" method="post">
-    <label>Edit Rental Contract ID</label><br>
-    <input type="text" name="rentalContract_id" th:value="${rentalContract.rentalContract_id}"><br><br>
+<!--    <label>Edit Rental Contract ID</label><br>-->
+    <input type="hidden" name="rentalContract_id" th:value="${rentalContract.rentalContract_id}"><br><br>
+    <label>Customer Name</label><br>
+    <input type="text" name="customer_name" th:value="${rentalContract.customer_firstName} +' ' + ${rentalContract.customer_lastName}" readonly><br><br>
+    <label>Motorhome Registration Number</label><br>
+    <input type="text" name="motorhome_registration" th:value="${rentalContract.motorhome_registration}" readonly><br><br>
+    <label>Choose extras</label><br>
+<!--    <input type="text" name="extra_id" th:value="${rentalContract.extra_name}"><br><br>-->
+    <select style="margin-left: 30px" name="extra_id">
+        <option th:each="extra:${extras}"
+                th:value="${extra.extra_id}"
+                th:text="${extra.extra_name}"
+                th:selected="${rentalContract.extra_id == extra.extra_id}">
+        </option>
+
+    </select><br><br>
     <label>Edit Start Date</label><br>
-    <input type="text" name="rentalContract_startDate" th:value="${rentalContract.rentalContract_startDate}"><br><br>
+    <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_startDate" th:value="${rentalContract.rentalContract_startDate}"><br><br>
     <label>Edit End Date</label><br>
-    <input type="text" name="rentalContract_endDate" th:value="${rentalContract.rentalContract_endDate}"><br><br>
-    <label>Edit Customer ID</label><br>
-    <input type="text" name="customer_id" th:value="${rentalContract.customer_id}"><br><br>
-    <label>Edit Motorhome ID</label><br>
-    <input type="text" name="motorhome_id" th:value="${rentalContract.motorhome_id}"><br><br>
-    <label>Edit Extra ID</label><br>
-    <input type="text" name="extra_id" th:value="${rentalContract.extra_id}"><br><br>
+    <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_endDate" th:value="${rentalContract.rentalContract_endDate}"><br><br>
+
 
     <input  type="submit" class="input-format input-1" value="Save Changes">
 </form>

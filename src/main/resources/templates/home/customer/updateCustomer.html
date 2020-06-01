@@ -9,15 +9,33 @@
         p{text-align: center}
         label{margin: 30px; font-family: cursive}
         input{border-radius: 10px; padding: 10px; margin-left: 30px;}
+        button{text-decoration: none;
+            margin: 20px;
+            color: white;
+            display: inline-table;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            background: #4E9CAF;
+            padding: 15px;
+            text-align: center;
+            font-family: fantasy;
+            border-radius: 23px;
+            color: white;
+            font-size: 13px;}
     </style>
 </head>
 <body style="background-color:  #1e90d263;">
 <h1 >Edit Customer</h1>
 <p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
 
+<a href="/customer">
+    <button class="btn-create" id="btn-back">Back</button>
+</a>
+
 <form action="/customer/updateCustomer" method="post">
-    <label >Edit ID</label><br>
-    <input type="text" name="customer_id" th:value="${customer.customer_id}"><br><br>
+<!--    <label >Edit ID</label><br>-->
+   <input type="hidden" name="customer_id" th:value="${customer.customer_id}"><br><br>
     <label>Edit First Name</label><br>
     <input type="text" name="customer_firstName" th:value="${customer.customer_firstName}"><br><br>
     <label>Edit Last Name</label><br>

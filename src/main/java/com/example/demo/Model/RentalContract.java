@@ -12,6 +12,10 @@ public class RentalContract {
     private int customer_id;
     private int motorhome_id;
     private int extra_id;
+    private String customer_firstName;
+    private String customer_lastName;
+    private String extra_name;
+    private String motorhome_registration;
 
     public RentalContract() {
     }
@@ -73,4 +77,37 @@ public class RentalContract {
     public void setExtra_id(int extra_id) {
         this.extra_id = extra_id;
     }
+
+    public String getCustomer_firstName() {
+        return customer_firstName;
+    }
+
+    public void setCustomer_firstName(String customer_firstName) {
+        this.customer_firstName = customer_firstName;
+    }
+
+    public String getCustomer_lastName() {
+        return customer_lastName;
+    }
+
+    public void setCustomer_lastName(String customer_lastName) {
+        this.customer_lastName = customer_lastName;
+    }
+
+    public String getExtra_name() {
+        return extra_name;
+    }
+
+    public void setExtra_name(String extra_name) {
+        this.extra_name = extra_name;
+    }
+
+    public String getMotorhome_registration() {
+        return motorhome_registration;
+    }
+
+    public void setMotorhome_registration(String motorhome_registration) {
+        this.motorhome_registration = motorhome_registration;
+    }
+
 }

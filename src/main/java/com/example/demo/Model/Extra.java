@@ -5,12 +5,13 @@ import javax.persistence.Id;
 
 @Entity
 public class Extra {
+
     @Id
     private int extra_id;
     private String extra_name;
     private int extra_price;
 
-    public Extra() {}
+    public Extra(){}
 
     public Extra(int extra_id, String extra_name, int extra_price) {
         this.extra_id = extra_id;
@@ -41,4 +42,6 @@ public class Extra {
     public void setExtra_price(int extra_price) {
         this.extra_price = extra_price;
     }
+
+
 }

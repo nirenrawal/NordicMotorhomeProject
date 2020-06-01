@@ -20,23 +20,22 @@
     <thead>
     <tr>
         <th>Rental Contract Id</th>
+        <th>Customer Name</th>
+        <th>Motorhome Registration</th>
+        <th>Extras</th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th>Customer ID</th>
-        <th>Motorhome ID</th>
-        <th>Extra ID</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="rentalContract: ${rentalContracts}">
         <td th:text="${rentalContract.rentalContract_id}"/>
+        <td th:text="${rentalContract.customer_firstName} +' ' + ${rentalContract.customer_lastName}"/>
+        <td th:text="${rentalContract.motorhome_registration}"/>
+        <td th:text="${rentalContract.extra_name}"/>
         <td th:text="${rentalContract.rentalContract_startDate}"/>
         <td th:text="${rentalContract.rentalContract_endDate}"/>
-        <td th:text="${rentalContract.customer_id}"/>
-        <td th:text="${rentalContract.motorhome_id}"/>
-        <td th:text="${rentalContract.extra_id}"/>
-
 
         <td>
             <a th:href="@{'/rentalContract/findRentalContract/'+${rentalContract.rentalContract_id}}">

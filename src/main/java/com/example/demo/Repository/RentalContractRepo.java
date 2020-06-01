@@ -15,7 +15,10 @@ public class RentalContractRepo {
     JdbcTemplate template;
 
     public List<RentalContract> viewAllRentalContract() {
-        String sql = "SELECT * FROM rentalContract";
+        //String sql = "SELECT * FROM rentalContract";
+        String sql = "SELECT r.*, c.customer_firstName, c.customer_lastName, e.extra_name, m.motorhome_registration\n" +
+                "FROM rentalContract r, customer c, extra e, motorhome m \n" +
+                "where r.customer_id = c.customer_id and r.motorhome_id = m.motorhome_id and e.extra_id = r.extra_id";
         RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
         return template.query(sql, rowMapper);
     }
@@ -30,7 +33,9 @@ public class RentalContractRepo {
     }
 
     public RentalContract findRentalContract(int rentalContract_id){
-        String sql = "SELECT * FROM rentalContract WHERE rentalContract_id = ?";
+        String sql = "SELECT r.*, c.customer_firstName, c.customer_lastName, e.extra_name, m.motorhome_registration " +
+                "FROM rentalContract r, customer c, extra e, motorhome m " +
+                "where r.customer_id = c.customer_id and r.motorhome_id = m.motorhome_id and e.extra_id = r.extra_id and r.rentalContract_id = ?";
         RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
         RentalContract rentalContract = template.queryForObject(sql, rowMapper, rentalContract_id);
         return rentalContract;
@@ -39,10 +44,9 @@ public class RentalContractRepo {
 
     public RentalContract updateRentalContract(int rentalContract_id, RentalContract rentalContract) {
         String sql = "UPDATE rentalContract SET rentalContract_startDate=?, rentalContract_endDate=?, " +
-                "customer_id=?, motorhome_id=?, extra_id=? WHERE rentalContract_id=?";
+                "extra_id=? WHERE rentalContract_id=?";
         template.update(sql, rentalContract.getRentalContract_startDate(), rentalContract.getRentalContract_endDate(),
-                rentalContract.getCustomer_id(), rentalContract.getMotorhome_id(), rentalContract.getExtra_id(),
-                rentalContract.getRentalContract_id());
+                rentalContract.getExtra_id(), rentalContract.getRentalContract_id());
         return null;
     }
 
