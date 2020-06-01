@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Create New Rental Contract</title>
@@ -8,6 +8,10 @@
 <div class="back-format">
     <h1>Create A New Rental Contract</h1>
     <p><i>Nordic Motor Homes <br> Generatorvej 10, Gladsaxe, Phone: +45-88888888<br>email: nordicmotor@nordicmotor.com</i></p>
+    <a href="/rentalContract">
+        <button class="btn-create" id="btn-back">Back</button>
+    </a>
+
     <form action="/createRentalContract" method="post">
 
 
@@ -15,12 +19,32 @@
         <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_startDate"><br><br>
         <label>Enter End Date</label>
         <input type="date" required pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" name="rentalContract_endDate"><br><br>
-        <label>Enter Customer ID</label>
-        <input type="number" max="9999" placeholder="numbers only" name="customer_id"><br><br>
-        <label>Enter Motorhome ID</label>
-        <input type="number" max="9999" placeholder="numbers only" name="motorhome_id"><br><br>
-        <label>Enter Extra ID</label>
-        <input type="number" max="9999" placeholder="numbers only" name="extra_id"><br><br>
+        <label>Choose Customer</label>
+<!--        <input type="number" max="9999" placeholder="numbers only" name="customer_id">-->
+        <select name="customer_id">
+            <option th:each="customer : ${customers}"
+                    th:value="${customer.customer_id}"
+                    th:text="${customer.customer_firstName} + ' ' + ${customer.customer_lastName}">
+            </option>
+
+        </select>
+        <br><br>
+        <label>Choose Motorhome</label>
+        <select name="motorhome_id">
+            <option th:each="motorhome : ${motorhomes}"
+                    th:value="${motorhome.motorhome_id}"
+                    th:text="${motorhome.motorhome_registration}">
+            </option>
+
+        </select><br><br>
+        <label>Choose Extra</label>
+        <select name="extra_id">
+            <option th:each="extra : ${extras}"
+                    th:value="${extra.extra_id}"
+                    th:text="${extra.extra_name}">
+            </option>
+
+        </select><br><br>
 
 
         <input  type="submit" class="input-format input-1" value="Create New Rental Contract">

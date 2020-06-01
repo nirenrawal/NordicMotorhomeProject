@@ -1,9 +1,11 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.Customer;
+import com.example.demo.Model.Extra;
 import com.example.demo.Model.Motorhome;
 import com.example.demo.Model.RentalContract;
 import com.example.demo.Service.CustomerService;
+import com.example.demo.Service.ExtraService;
 import com.example.demo.Service.MotorhomeService;
 import com.example.demo.Service.RentalContractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class HomeController {
     MotorhomeService motorhomeService;
     @Autowired
     RentalContractService rentalContractService;
+    @Autowired
+    ExtraService extraService;
 
     @GetMapping("/")
     public String login() {
@@ -165,7 +169,13 @@ public class HomeController {
     }
 
     @GetMapping("/createRentalContract")
-    public String createRentalContract(){
+    public String createRentalContract(Model model){
+        List<Customer> customerList = customerService.viewAllCustomer();
+        model.addAttribute("customers", customerList);
+        List<Motorhome> motorhomeList = motorhomeService.viewAllMotorhome();
+        model.addAttribute("motorhomes", motorhomeList);
+        List<Extra> extraList = extraService.viewAllExtra();
+        model.addAttribute("extras", extraList);
         return "home/rentalContract/createRentalContract";
     }
 
@@ -194,6 +204,8 @@ public class HomeController {
     @GetMapping("/rentalContract/updateRentalContract/{rentalContract_id}")
     public String updateRentalContract(@PathVariable("rentalContract_id") int rentalContract_id, Model model){
         model.addAttribute("rentalContract", rentalContractService.findRentalContract(rentalContract_id));
+        List<Extra> extraList = extraService.viewAllExtra();
+        model.addAttribute("extras", extraList);
         return "home/rentalContract/updateRentalContract";
     }
 

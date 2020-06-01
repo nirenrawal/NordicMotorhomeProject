@@ -71,7 +71,7 @@ h1, p{
     font-size: 13px;
 }
 .back-format{
-    background-color: #1e90d263;
+    background-color: rgba(30, 144, 210, 0.39);
     font-family: cursive;
     font-weight: bold;
 }
@@ -102,3 +102,4 @@ h1, p{
 /*    margin: 30px;*/
 /*    font-family: cursive;*/
 /*}*/
+
