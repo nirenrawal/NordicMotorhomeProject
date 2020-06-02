@@ -222,9 +222,9 @@ public class HomeController {
     }
 
 
-    // ------------------------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------------------------------------------------
+    //x-----------x----------x-----------x-----------x----------x-----------x-----------x----------x-----------x//
 
+    //MAKE PAYMENT
     @GetMapping("/payment")
     public String makePayment() {
         return "home/payment/makePayment";
@@ -232,14 +232,14 @@ public class HomeController {
 
     @GetMapping("/getRentalContractID")
     public String getRentalContractID(HttpServletRequest request, Model m) {
-        // handle the Last Name of the Customer
+        // Handle inputed Last Name of the Customer
         String userEnteredLastName = request.getParameter("customer_LastName");
         last_nameUp = userEnteredLastName;
 
         // Make customer list
         List<Customer> customerList = customerService.viewAllCustomer();
 
-        // Get CustomerID
+        // Get Customer ID associated to inputed Customer last name and assign it to variable
         int wanted_ID = 0;
         for (Customer customer : customerList) {
             if (customer.getCustomer_lastName().equalsIgnoreCase(userEnteredLastName)) {
@@ -250,7 +250,7 @@ public class HomeController {
         // Make rentalContract list
         List<RentalContract> rentalContractList = rentalContractService.viewAllRentalContract();
 
-        // Get MotorhomeID , StartDate and EndDate using CustomerID
+        // Get Motorhome ID , start_date and end_date using Customer ID
         int motorhomeID = 0;
         String startDate = "";
         String endDate = "";
@@ -277,14 +277,8 @@ public class HomeController {
             }
         }
 
-
-        // x---------x---------x---------x---------x--------x---------x--------x----------x---------x--------x
-        // x---------x---------x---------x---------x--------x---------x--------x----------x---------x--------x
-        // x---------x---------x---------x---------x--------x---------x--------x----------x---------x--------x
-
         // CALCULATE EVERYTHING
         // METHOD FOR GETTING NUMBER OF DAYS OUT OF STRING/VARCHAR rentalContract_startDate AND rentalContract_endDate
-
         String date1 = startDate;                // rentalContract_startDate
         String date2 = endDate;                  // rentalContract_endDate
 
@@ -321,48 +315,42 @@ public class HomeController {
         String d1date = d1days + "/" + d1months + "/" + d1years;
         String d2date = d2days + "/" + d2months + "/" + d2years;
 
-        // add dates to the model;
+        // Adding the attribute to the model -> Display start date and end date
         m.addAttribute("startingDate", d1date);
         m.addAttribute("endingDate", d2date);
 
         // FIND NUMBER OF DAYS
         int numberOfDays = 0;
-        // months == and years == (10/12/2020 - 20/12/2020)
-        if ((d1months == d2months) && (d1years == d2years)) {
+
+        if ((d1months == d2months) && (d1years == d2years)) {                                                                               // (10/12/2020 - 20/12/2020)
             numberOfDays = d2days - d1days;
-        } else if ((d1days < d2days) && (d1months < d2months) && (d1years == d2years)) {                    // (11/01/2020 - 22/10/2020)
+        } else if ((d1days < d2days) && (d1months < d2months) && (d1years == d2years)) {                                                    // (11/01/2020 - 22/10/2020)
             numberOfDays = (d2days - d1days) + 30 * (d2months - d1months);
-        } else if ((d1days > d2days) && (d1months < d2months) && (d1years == d2years)) {                    // (22/01/2020 - 11/10/2020)
+        } else if ((d1days > d2days) && (d1months < d2months) && (d1years == d2years)) {                                                    // (22/01/2020 - 11/10/2020)
             numberOfDays = ((30 - d1days) + d2days) + 30 * (d2months - d1months - 1);
-        } else if ((d1days == d2days) && (d1months < d2months) && (d1years == d2years)) {                     // (11/01/2020 - 11/10/2020)
+        } else if ((d1days == d2days) && (d1months < d2months) && (d1years == d2years)) {                                                   // (11/01/2020 - 11/10/2020)
             numberOfDays = 30 * (d2months - d1months);
-        } else if ((d1days < d2days) && (d1months > d2months) && (d1years < d2years)) {                     // (11/10/2019 - 22/01/2020)
+        } else if ((d1days < d2days) && (d1months > d2months) && (d1years < d2years)) {                                                     // (11/10/2019 - 22/01/2020)
             numberOfDays = ((12 - d1months) * 30 + 30 - d1days) + ((d2months - 1) * 30 + d2days) + ((d2years - d1years) - 1) * 360;
-        } else if ((d1days > d2days) && (d1months < d2months) && (d1years < d2years)) {                           // (22/01/2019 - 11/10/2020)
+        } else if ((d1days > d2days) && (d1months < d2months) && (d1years < d2years)) {                                                     // (22/01/2019 - 11/10/2020)
             numberOfDays = ((30 - d1days) + d2days) + (d2months - (d1months + 1)) * 30 + (d2years - d1years) * 360;
-        } else if ((d1days < d2days) && (d1months < d2months) && (d1years < d2years)) {                     // (11/01/2019 - 22/10/2020)
+        } else if ((d1days < d2days) && (d1months < d2months) && (d1years < d2years)) {                                                     // (11/01/2019 - 22/10/2020)
             numberOfDays = (30 - d1days + d2days) + (d2months - d1months) * 30 + (d2years - d1years) * 360;
-        } else if ((d1days > d2days) && (d1months > d2months) && (d1years < d2years)) {                           // (22/10/2019 - 11/01/2020)
+        } else if ((d1days > d2days) && (d1months > d2months) && (d1years < d2years)) {                                                     // (22/10/2019 - 11/01/2020)
             numberOfDays = ((30 - d1days) + d2days) + 30 * ((12 - d1months) - 1) + 30 * d2months;
         }
 
-        // add number of days to the model
+        // Adding the attribute to the model -> Display number of days
         m.addAttribute("totalNumberOfDays", numberOfDays);
 
-
-        // x---------x---------x---------x---------x--------x---------x--------x----------x---------x--------x
-        // x---------x---------x---------x---------x--------x---------x--------x----------x---------x--------x
-        // x---------x---------x---------x---------x--------x---------x--------x----------x---------x--------x
-
         // INITIATE ALL THE PRICES
-        // sum of all prices
-        double totalPrice = 0;
+        double totalPrice = 0;              // TOTAL PRICE AND RETURNED AT THE END
 
-        // seasonal prices
+        // Seasonal prices
         int pricePerDaySeason = 0;
         int seasonPrice = 0;
 
-        // motorhome prices
+        // Motorhome prices
         int brandPrice = 0;
         int pricePerDayBrand = 0;
         int modelPrice = 0;
@@ -380,7 +368,7 @@ public class HomeController {
         seasonPrice = numberOfDays * pricePerDaySeason;
         totalPrice += seasonPrice;
 
-        // add prices to the model
+        // Adding the attribute to the model -> Display prices
         m.addAttribute("seasonPrice", seasonPrice);
         m.addAttribute("totalPriceAndSeasonPrice", totalPrice);
 
@@ -394,7 +382,7 @@ public class HomeController {
         brandPrice = numberOfDays * pricePerDayBrand;
         totalPrice += brandPrice;
 
-        // add prices to model
+        // Adding the attribute to the model -> Display prices
         m.addAttribute("brand", motorhomeBrand);
         m.addAttribute("priceForBrand", brandPrice);
         m.addAttribute("totalPriceAndPriceForBrand", totalPrice);
@@ -413,7 +401,7 @@ public class HomeController {
         modelPrice = numberOfDays * pricePerDayModel;
         totalPrice += modelPrice;
 
-        // add prices to model
+        // Adding the attribute to the model -> Display prices
         m.addAttribute("model", motorhomeModel);
         m.addAttribute("priceForModel", modelPrice);
         m.addAttribute("totalPriceAndPriceForModel", totalPrice);
@@ -423,10 +411,12 @@ public class HomeController {
             totalPrice += 70;
         }
 
-        // add fuel amount to model
+        // Adding the attribute to the model -> Display amount of fuel and price
         m.addAttribute("fuelAmount" ,fuelAmount);
         m.addAttribute("totalPriceAfterFuelAmount", totalPrice);
 
+        // Assign the variables to the instance variables which are instantiated at the beginning
+        // Those variables will be needed in more methods
         daysUp = numberOfDays;
         totalPriceUp = totalPrice;
 
@@ -441,6 +431,7 @@ public class HomeController {
         String userInputDistance = request.getParameter("distance");
         double distanceDriven = Double.parseDouble(userInputDistance);
 
+        // Adding the attribute to the model -> Display inputed distance and number of days
         m.addAttribute("distanceDriven",distanceDriven);
         m.addAttribute("days", daysUp);
 
@@ -449,6 +440,8 @@ public class HomeController {
         if (averageKm > 400) {
             totalPriceUp += (averageKm - 400);
         }
+
+        // Adding the attribute to the model -> Display average km driven and price
         m.addAttribute("averageDistance", averageKm);
         m.addAttribute("totalPriceWithDistanceCost", totalPriceUp);
 
@@ -457,6 +450,7 @@ public class HomeController {
 
     @GetMapping("/addExtras")
     public String addExtras(Model model){
+        // List of all Extras items that can be rented out too
         List<Extra> extraList = extraService.viewAllExtra();
         model.addAttribute("extras", extraList);
         return "home/payment/extras";
@@ -465,11 +459,11 @@ public class HomeController {
     @GetMapping("/finishCalculation")
     public String finishCalculation(HttpServletRequest request, Model model) {
 
-        // Get total price and number of days
+        // Get total price and number of days from instance variables
         int numberOfDays = daysUp;
         double totalPrice = totalPriceUp;
 
-        // Get all the use input and parse it to int type
+        // Get all the User's input and parse it to Double type for calculating
         String userInputService = request.getParameter("service");
         double serviceQuantity = Double.parseDouble(userInputService);
         String userInputTransport = request.getParameter("transport");
@@ -495,10 +489,8 @@ public class HomeController {
         double priceItem5 = 0;
 
         // Calculate the price
-        // Service
-
-        priceService = 500*serviceQuantity;
-        priceTransport = 0.70*transportQuantity;
+        priceService = 500*serviceQuantity;                     // 1 service costs 500€
+        priceTransport = 0.70*transportQuantity;                // 1 km cots 0,70€
         priceItem1 = 10*numberOfDays*item1Quantity;
         priceItem2 = 15*numberOfDays*item2Quantity;
         priceItem3 = 20*numberOfDays*item3Quantity;
@@ -507,6 +499,8 @@ public class HomeController {
 
         totalPrice = totalPrice + priceService + priceTransport + priceItem1 + priceItem2 + priceItem3 + priceItem4 + priceItem5;
         totalPriceUp = totalPrice;
+
+        // Adding the attribute to the model -> Display customer last name and total price for that Customer
         model.addAttribute("customer", last_nameUp);
         model.addAttribute("finalPrice", totalPriceUp);
         return "home/payment/end";
