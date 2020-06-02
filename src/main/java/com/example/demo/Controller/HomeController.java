@@ -268,7 +268,7 @@ public class HomeController {
         // Get Motohome_brand, Motorhome_model, Motorhome_fuelAmount
         String brand = "";
         String model = "";
-        String fuelAmount = "";
+        int fuelAmount = 0;
         for (int k = 0; k < motorhomeList.size(); k++) {
             if (motorhomeList.get(k).getMotorhome_id() == motorhomeID) {
                 brand = motorhomeList.get(k).getMotorhome_brand();
@@ -419,8 +419,7 @@ public class HomeController {
         m.addAttribute("totalPriceAndPriceForModel", totalPrice);
 
         // 4. Fuel amount
-        int fuel = Integer.valueOf(fuelAmount);
-        if (fuel < 50) {
+        if (fuelAmount < 50) {
             totalPrice += 70;
         }
 

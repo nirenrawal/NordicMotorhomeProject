@@ -16,7 +16,7 @@ public class Motorhome {
     private int motorhome_odometer;
     private String motorhome_availability;
     private String motorhome_fuelType;
-    private String motorhome_fuelAmount;
+    private int motorhome_fuelAmount;
     private int motorhome_price;
 
     public Motorhome() {
@@ -24,7 +24,7 @@ public class Motorhome {
 
     public Motorhome(int motorhome_id, String motorhome_type, String motorhome_brand, String motorhome_model,
                      int motorhome_beds, String motorhome_registration, int motorhome_odometer,
-                     String motorhome_availability, String motorhome_fuelType, String motorhome_fuelAmount,
+                     String motorhome_availability, String motorhome_fuelType, int motorhome_fuelAmount,
                      int motorhome_price) {
         this.motorhome_id = motorhome_id;
         this.motorhome_type = motorhome_type;
@@ -111,11 +111,11 @@ public class Motorhome {
         this.motorhome_fuelType = motorhome_fuelType;
     }
 
-    public String getMotorhome_fuelAmount() {
+    public int getMotorhome_fuelAmount() {
         return motorhome_fuelAmount;
     }
 
-    public void setMotorhome_fuelAmount(String motorhome_fuelAmount) {
+    public void setMotorhome_fuelAmount(int motorhome_fuelAmount) {
         this.motorhome_fuelAmount = motorhome_fuelAmount;
     }
 
