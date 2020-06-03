@@ -1,149 +1,91 @@
--- MySQL dump 10.13  Distrib 8.0.19, for macos10.15 (x86_64)
---
--- Host: localhost    Database: NordicMotorhomeRental
--- ------------------------------------------------------
--- Server version	8.0.19
+DROP DATABASE IF EXISTS NordicMotorhomeRental;
+CREATE DATABASE NordicMotorhomeRental;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+USE NordicMotorhomeRental;
 
---
--- Table structure for table `customer`
---
+CREATE TABLE customer
+(
+    customer_id		            INT	 	    	PRIMARY KEY	 	AUTO_INCREMENT,
+    customer_firstName			VARCHAR(45)		NOT NULL,
+    customer_lastName			VARCHAR(45)		NOT NULL,
+    customer_address			VARCHAR(45)		NOT NULL,
+    customer_city				VARCHAR(45)		NOT NULL,
+    customer_zip				INT				NOT NULL,
+    customer_phoneNo			VARCHAR(45)		NOT NULL,
+    customer_email				VARCHAR(45),
+    customer_driver_licenseNo	VARCHAR(45)		NOT NULL
+);
 
-DROP TABLE IF EXISTS `customer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customer` (
-  `customer_id` int NOT NULL AUTO_INCREMENT,
-  `customer_firstName` varchar(45) NOT NULL,
-  `customer_lastName` varchar(45) NOT NULL,
-  `customer_address` varchar(45) NOT NULL,
-  `customer_city` varchar(45) NOT NULL,
-  `customer_zip` int NOT NULL,
-  `customer_phoneNo` varchar(45) NOT NULL,
-  `customer_email` varchar(45) DEFAULT NULL,
-  `customer_driver_licenseNo` varchar(45) NOT NULL,
-  PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE motorhome
+(
+    motorhome_id				INT				PRIMARY KEY		AUTO_INCREMENT,
+    motorhome_type				VARCHAR(45)		NOT NULL,
+    motorhome_brand  			VARCHAR(45)		NOT NULL,
+    motorhome_model				VARCHAR(45)		NOT NULL,
+    motorhome_beds				VARCHAR(45)		NOT NULL,
+    motorhome_registration  	VARCHAR(45)		NOT NULL,
+    motorhome_odometer			INT				NOT NULL,
+    motorhome_availability		VARCHAR(45)		NOT NULL,
+    motorhome_fuelType			VARCHAR(45)		NOT NULL,
+    motorhome_fuelAmount		INT		 		NOT NULL,
+    motorhome_price				INT				NOT NULL
+);
 
---
--- Dumping data for table `customer`
---
+CREATE TABLE extra
+(
+    extra_id		INT	 	        PRIMARY KEY		AUTO_INCREMENT,
+    extra_name		VARCHAR(45)		NOT NULL,
+    extra_price		INT				NOT NULL
+);
 
-LOCK TABLES `customer` WRITE;
-/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (14,'Ram','RAm','RAm','Ram',22,'33333','@yyyyy','393939393'),(15,'PGya','Chudal','Gladsaxe','Soeborg',43343434,'34343','yahoo@yahoo.com','343434343');
-/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
-UNLOCK TABLES;
+CREATE TABLE rentalContract
+(
+    rentalContract_id			INT				PRIMARY KEY		AUTO_INCREMENT,
+    rentalContract_startDate	VARCHAR(45)		NOT NULL,
+    rentalContract_endDate		VARCHAR(45)		NOT NULL,
+    customer_id					INT				NOT NULL,
+    motorhome_id				INT 			NOT NULL,
+    extra_id					INT 			NOT NULL,
+    CONSTRAINT rentalContract_fk_customer
+		FOREIGN KEY (customer_id)
+		REFERENCES customer (customer_id)
+        ON DELETE CASCADE,
+    CONSTRAINT rentalContract_fk_motorhome
+		FOREIGN KEY (motorhome_id)
+		REFERENCES motorhome (motorhome_id)
+        ON DELETE CASCADE,
+    CONSTRAINT rentalContract_fk_extra
+		FOREIGN KEY (extra_id)
+		REFERENCES extra (extra_id)
+        ON DELETE CASCADE
+);
 
---
--- Table structure for table `extra`
---
+INSERT INTO customer (customer_firstName, customer_lastName, customer_address, customer_city,
+						customer_zip, customer_phoneNo, customer_email, customer_driver_licenseNo)
+VALUES
+('David', 'Krtolica', 'Theklavej 36', 'Copenhagen', 2400, '12345678', 'davi161a@stud.kea.dk', '4536253499'),
+('David', 'Haring', 'Theklavej 36', 'Copenhagen', 2400,  '12345679', 'davi162a@stud.kea.dk', '4536253498'),
+('Pragya', 'Chudal', 'Bispevej 48', 'Copenhagen', 2100,  '12345677', null, '4536253497'),
+('Nirendra', 'Singh Rawal', 'Thoravej 65', 'Copenhagen', 2200,  '12345676', 'nirendrasr@stud.kea.dk', '4536253496');
 
-DROP TABLE IF EXISTS `extra`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `extra` (
-  `extra_id` int NOT NULL AUTO_INCREMENT,
-  `extra_name` varchar(45) NOT NULL,
-  `extra_price` int NOT NULL,
-  PRIMARY KEY (`extra_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+INSERT INTO motorhome (motorhome_type, motorhome_brand, motorhome_model, motorhome_beds,
+						motorhome_registration, motorhome_odometer, motorhome_availability, motorhome_fueltype,
+							motorhome_fuelAmount, motorhome_price)
+VALUES
+('Comfort', 'Winnebago', 'Boldt', 3, 'ZZ22S', 12333, 'available', 'diesel', 100, 0),
+('Luxury', 'Winnebago', 'Travato', 4, 'TT33A', 9435, 'available', 'diesel', 100, 100),
+('Comfort', 'Entegra', 'Anthem', 3, 'UH877I', 2067, 'available', 'diesel', 100, 50),
+('Luxury', 'Entegra', 'Emble', 4, 'NB009J', 15003, 'available', 'diesel', 100, 150);
 
---
--- Dumping data for table `extra`
---
+INSERT INTO extra (extra_name, extra_price) VALUES
+('Bike rack', 10),
+('Bed linen', 15),
+('Child seat', 20),
+('Picnic table', 10),
+('Picnic chair', 5);
 
-LOCK TABLES `extra` WRITE;
-/*!40000 ALTER TABLE `extra` DISABLE KEYS */;
-INSERT INTO `extra` VALUES (1,'Bike rack',10),(2,'Bed linen',15),(3,'Child seat',20),(4,'Picnic table',10),(5,'Picnic chair',5);
-/*!40000 ALTER TABLE `extra` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `motorhome`
---
-
-DROP TABLE IF EXISTS `motorhome`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `motorhome` (
-  `motorhome_id` int NOT NULL AUTO_INCREMENT,
-  `motorhome_type` varchar(45) NOT NULL,
-  `motorhome_brand` varchar(45) NOT NULL,
-  `motorhome_model` varchar(45) NOT NULL,
-  `motorhome_beds` varchar(45) NOT NULL,
-  `motorhome_registration` varchar(45) NOT NULL,
-  `motorhome_odometer` int NOT NULL,
-  `motorhome_availability` varchar(45) NOT NULL,
-  `motorhome_fuelType` varchar(45) NOT NULL,
-  `motorhome_fuelAmount` int NOT NULL,
-  `motorhome_price` int NOT NULL,
-  PRIMARY KEY (`motorhome_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `motorhome`
---
-
-LOCK TABLES `motorhome` WRITE;
-/*!40000 ALTER TABLE `motorhome` DISABLE KEYS */;
-INSERT INTO `motorhome` VALUES (3,'family','Entegra','Anthem','3','UH877I',2067,'no','diesel',100,50),(7,'luxury','vw','california','4','al 22400',2300,'no','petrol',25,2300),(8,'family','vw','california','4','al20202',2393939,'yes','petrol',25,2500);
-/*!40000 ALTER TABLE `motorhome` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `rentalContract`
---
-
-DROP TABLE IF EXISTS `rentalContract`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rentalContract` (
-  `rentalContract_id` int NOT NULL AUTO_INCREMENT,
-  `rentalContract_startDate` varchar(45) NOT NULL,
-  `rentalContract_endDate` varchar(45) NOT NULL,
-  `customer_id` int NOT NULL,
-  `motorhome_id` int NOT NULL,
-  `extra_id` int NOT NULL,
-  PRIMARY KEY (`rentalContract_id`),
-  KEY `rentalContract_fk_customer` (`customer_id`),
-  KEY `rentalContract_fk_extra` (`extra_id`),
-  KEY `rentalContract_fk_motorhome` (`motorhome_id`),
-  CONSTRAINT `rentalContract_fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE,
-  CONSTRAINT `rentalContract_fk_extra` FOREIGN KEY (`extra_id`) REFERENCES `extra` (`extra_id`) ON DELETE CASCADE,
-  CONSTRAINT `rentalContract_fk_motorhome` FOREIGN KEY (`motorhome_id`) REFERENCES `motorhome` (`motorhome_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rentalContract`
---
-
-LOCK TABLES `rentalContract` WRITE;
-/*!40000 ALTER TABLE `rentalContract` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rentalContract` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-05-31  1:01:45
+INSERT INTO rentalContract (rentalContract_startDate, rentalContract_endDate, customer_id, motorhome_id, extra_id) VALUES
+('12/02/2020', '17/02/2020', 1, 2, 1),
+('20/02/2020', '22/02/2020', 2, 1, 3),
+('03/03/2020', '10/03/2020', 4, 3, 2),
+('25/04/2020', '30/04/2020', 3, 4, 4);
