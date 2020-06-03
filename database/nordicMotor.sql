@@ -85,7 +85,7 @@ INSERT INTO extra (extra_name, extra_price) VALUES
 ('Picnic chair', 5);
 
 INSERT INTO rentalContract (rentalContract_startDate, rentalContract_endDate, customer_id, motorhome_id, extra_id) VALUES
-('12/02/2020', '17/02/2020', 1, 2, 1),
-('20/02/2020', '22/02/2020', 2, 1, 3),
-('03/03/2020', '10/03/2020', 4, 3, 2),
-('25/04/2020', '30/04/2020', 3, 4, 4);
+('12/07/2020', '17/07/2020', 1, 2, 1),
+('20/07/2020', '22/07/2020', 2, 1, 3),
+('03/08/2020', '10/08/2020', 4, 3, 2),
+('25/06/2020', '30/06/2020', 3, 4, 4);
